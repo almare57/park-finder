@@ -63,6 +63,7 @@
                 url: "/getParks.php",
                 data: {activity_id: activity_id}, // Optional data to send
                 success: function (response) {
+                    $("#results").html("");
                     let obj = JSON.parse(response);
                     if(obj.data && obj.data[0]["parks"]){
                         let parks = obj.data[0]["parks"];
@@ -76,6 +77,7 @@
                     }
                 },
                 error: function (xhr, status, error) {
+                    $("#results").html("");
                     let obj = JSON.parse(xhr.responseText);
                     if(obj.message){
                         console.log(obj.message);
